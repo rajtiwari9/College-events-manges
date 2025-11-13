@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CampusConnect | College Events</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2 class="logo">CampusConnect</h2>
+    <div class="nav-links">
+      <a href="#" id="homeBtn">Home</a>
+      <a href="#" id="eventsBtn">Events</a>
+      <a href="#" id="aboutBtn">About</a>
+      <a href="#" id="contactBtn">Contact</a>
+    </div>
+    <button id="adminBtn" class="admin-btn">Admin</button>
+  </nav>
+
+  <!-- HEADER with animated gradient & particles -->
+  <header id="headerText">
+    <canvas id="heroParticles"></canvas>
+    <div class="hero-content">
+      <h1>Welcome to <span>CampusConnect</span></h1>
+      <p>Discover and register for amazing college events — easy, fast & secure.</p>
+      <div class="hero-cta">
+        <button id="exploreClubsBtn" class="primary">Explore Clubs</button>
+        <button id="allEventsBtn" class="secondary">All Events</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="mainContent">
+    <!-- CLUB SECTION -->
+    <section id="clubsSection" style="display:none; padding: 20px;">
+      <h2>🎯 Explore Clubs</h2>
+      <p>Manage or view all clubs here.</p>
+      <div id="clubList">
+        <!-- Clubs dynamically appear here -->
+      </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="eventsSection" style="display:none; padding: 20px;">
+      <h2>📅 All Events</h2>
+      <p>Manage or view all events here.</p>
+      <div id="eventList">
+        <!-- Events dynamically appear here -->
+      </div>
+    </section>
+
+    <!-- BACK BUTTON (added cleanly here) -->
+    <div class="back-btn-container">
+      <button class="back-btn" onclick="window.history.back()">← Back</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 CampusConnect | All Rights Reserved</p>
+  </footer>
+
+  <!-- REGISTRATION MODAL -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <h3>🎟 Event Registration</h3>
+      <form id="regForm">
+        <input type="text" id="regName" placeholder="Full Name" required />
+        <input type="text" id="regDept" placeholder="Department" required />
+        <input type="text" id="regRoll" placeholder="Roll Number" required />
+        <input type="tel" id="regPhone" placeholder="Phone Number" required />
+        <input type="email" id="regEmail" placeholder="Email" required />
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" required>
+          <option value="">Select Payment Option</option>
+          <option value="UPI">UPI</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="QR Code">QR Code</option>
+        </select>
+
+        <div id="paymentDetails" class="hidden"></div>
+
+        <div class="form-buttons">
+          <button type="submit" class="primary">Confirm & Pay</button>
+          <button type="button" id="closeModal" class="secondary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div id="adminLogin" class="modal">
+    <div class="modal-content">
+      <h3>🔑 Admin Login</h3>
+      <input type="password" id="adminPass" placeholder="Enter Admin Password" />
+      <div class="form-buttons">
+        <button id="loginAdmin" class="primary">Login</button>
+        <button id="cancelAdmin" class="secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
