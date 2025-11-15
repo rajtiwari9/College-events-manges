@@ -3,16 +3,46 @@ const main = document.getElementById("mainContent");
 const header = document.getElementById("headerText");
 
 // ------------------ Data ------------------
+// ------------------ Data ------------------
 let clubs = {
-  "Music Club": [
-    { title: "Battle of Bands", date: "2025-11-20", status: "Upcoming", desc: "Show your talent in the ultimate music battle." },
-    { title: "Open Mic Night", date: "2025-11-10", status: "Ongoing", desc: "Perform songs, poetry or stand-up." }
+  "TARANG CLUB": [
+    { title: "OPEN MIC", date: "2025-11-20", status: "Upcoming", desc: "Show your talent in the ultimate open mic battle.<br/>VENUE - BASKETBALL COURT" },
+    { title: "Instrumental Performance", date: "2025-11-10", status: "Ongoing", desc: "Perform songs, poetry, or stand-up.<br/>VENUE - SHIVANAND AUDI" }
   ],
-  "Tech Club": [
-    { title: "Hackathon 5.0", date: "2025-11-22", status: "Upcoming", desc: "Build products in 24 hrs." },
-    { title: "AI Workshop", date: "2025-11-15", status: "Ongoing", desc: "Hands-on ML sessions." }
+  "UTKARSH CLUB": [
+    { title: "TECHNICAL QUIZ", date: "2025-11-22", status: "Upcoming", desc: "It's time to show your technical knowledge.<br/>VENUE - ME DEPT." },
+    { title: "AI Workshop", date: "2025-11-15", status: "Ongoing", desc: "Hands-on session on Machine Learning and AI tools." }
+  ],
+  "CODING CLUB": [
+    { title: "Hackathon 2.0", date: "2025-12-01", status: "Upcoming", desc: "48-hour coding challenge — build something innovative!<br/>VENUE - LAB BLOCK" },
+    { title: "Bug Hunt", date: "2025-11-18", status: "Ongoing", desc: "Find and fix as many bugs as you can.<br/>VENUE - CS LAB 2" }
+  ],
+  "SHIKHAR CLUB": [
+    { title: "Nature Through Lens", date: "2025-11-25", status: "Upcoming", desc: "Capture the beauty of nature in your own style.<br/>VENUE - CAMPUS GARDEN" },
+    { title: "Photo Editing Workshop", date: "2025-11-12", status: "Ongoing", desc: "Learn advanced editing techniques.<br/>VENUE - MEDIA ROOM" }
+  ],
+  "ARJUN CLUB": [
+     { title: "Cricket Tournament", date: "2025-12-05", status: "Upcoming", desc: "Inter-department cricket competition.<br/>VENUE - SPORTS GROUND" },
+     { title: "Badminton Championship", date: "2025-11-19", status: "Ongoing", desc: "Smash and serve to victory!<br/>VENUE - INDOOR ARENA" }
+   ],
+  "R AND D CLUB": [
+    { title: "Poetry Slam", date: "2025-11-27", status: "Upcoming", desc: "Let words flow and emotions rise.<br/>VENUE - SEMINAR HALL" },
+    { title: "Story Writing Contest", date: "2025-11-14", status: "Ongoing", desc: "Pen down your imagination.<br/>VENUE - LIBRARY HALL" }
+  ],
+  "DANCE CREW": [
+    { title: "Dance Battle", date: "2025-11-23", status: "Upcoming", desc: "Solo and group dance competition.<br/>VENUE - CENTRAL STAGE" },
+    { title: "Zumba Workshop", date: "2025-11-13", status: "Ongoing", desc: "Groove to fitness beats.<br/>VENUE - GYM HALL" }
+  ],
+  "CHALCHITRA CLUB": [
+    { title: "Cricket Tournament", date: "2025-12-05", status: "Upcoming", desc: "Inter-department cricket competition.<br/>VENUE - SPORTS GROUND" },
+    { title: "Badminton Championship", date: "2025-11-19", status: "Ongoing", desc: "Smash and serve to victory!<br/>VENUE - INDOOR ARENA" }
+  ],
+   "MANCHAN CLUB": [
+    { title: "Cricket Tournament", date: "2025-12-05", status: "Upcoming", desc: "Inter-department cricket competition.<br/>VENUE - SPORTS GROUND" },
+    { title: "Badminton Championship", date: "2025-11-19", status: "Ongoing", desc: "Smash and serve to victory!<br/>VENUE - INDOOR ARENA" }
   ]
 };
+
 
 // ------------------ Helper ------------------
 function updateHeader(title, subtitle) {
