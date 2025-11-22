@@ -332,3 +332,129 @@ footer {
   background: linear-gradient(90deg, var(--accent), var(--teal));
   box-shadow: 0 8px 25px rgba(43, 179, 179, 0.35);
 }
+/* ================= MOBILE RESPONSIVE FIX ================= */
+
+/* --- Navbar mobile fix --- */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    background:rgba(11, 18, 34, 0.06);
+    padding: 10px 0;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .hamburger div {
+    width: 28px;
+    height: 3px;
+    margin: 5px;
+    background: black;
+    transition: 0.3s;
+  }
+
+  /* show menu on mobile */
+  .nav-links.show {
+    display: block;
+  }
+}
+
+/* Cards responsive */
+@media (max-width: 768px) {
+  .events-container {
+    grid-template-columns: 1fr !important;
+    padding: 10px;
+  }
+}
+
+/* image responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ================= DESKTOP NAVBAR ALIGNMENT ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+/* Center menu */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Admin button right side */
+.admin-btn {
+  margin-left: auto;
+}
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .navbar {
+    position: relative;
+  }
+
+  /* Center menu becomes dropdown */
+  .nav-links {
+    display: none;
+    position: static;
+    transform: none;
+    width: 100%;
+    background: rgba(11, 18, 34, 0.06);
+    margin-top: 55px;
+    padding: 10px 0;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .nav-links.show {
+    display: block;
+  }
+
+  /* Admin stays top-right */
+  .admin-btn {
+    position: absolute;
+    right: 70px;
+    top: 20px;
+    z-index: 20;
+  }
+
+  /* Hamburger left of admin */
+  .hamburger {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 26px;
+    height: 3px;
+    background: rgb(247, 245, 245);
+    margin: 4px;
+  }
+}
