@@ -6,20 +6,34 @@
   <title>CampusConnect | College Events</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <h2 class="logo">CampusConnect</h2>
+
+    <!-- NAV LINKS -->
     <div class="nav-links">
       <a href="#" id="homeBtn">Home</a>
       <a href="#" id="eventsBtn">Events</a>
       <a href="#" id="aboutBtn">About</a>
       <a href="#" id="contactBtn">Contact</a>
     </div>
+
+    <!-- ADMIN BUTTON -->
     <button id="adminBtn" class="admin-btn">Admin</button>
+
+    <!-- HAMBURGER BUTTON -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
 
-  <!-- HEADER with animated gradient & particles -->
+
+  <!-- HEADER -->
   <header id="headerText">
     <canvas id="heroParticles"></canvas>
     <div class="hero-content">
@@ -34,34 +48,33 @@
 
   <!-- MAIN CONTENT -->
   <main id="mainContent">
-    <!-- CLUB SECTION -->
+
+    <!-- CLUBS SECTION -->
     <section id="clubsSection" style="display:none; padding: 20px;">
       <h2>🎯 Explore Clubs</h2>
       <p>Manage or view all clubs here.</p>
-      <div id="clubList">
-        <!-- Clubs dynamically appear here -->
-      </div>
+      <div id="clubList"></div>
     </section>
 
     <!-- EVENTS SECTION -->
     <section id="eventsSection" style="display:none; padding: 20px;">
       <h2>📅 All Events</h2>
       <p>Manage or view all events here.</p>
-      <div id="eventList">
-        <!-- Events dynamically appear here -->
-      </div>
+      <div id="eventList"></div>
     </section>
 
-    <!-- BACK BUTTON (added cleanly here) -->
+    <!-- BACK BUTTON -->
     <div class="back-btn-container">
       <button class="back-btn" onclick="window.history.back()">← Back</button>
     </div>
+
   </main>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2025 CampusConnect | All Rights Reserved</p>
   </footer>
+
 
   <!-- REGISTRATION MODAL -->
   <div id="registerModal" class="modal">
@@ -104,6 +117,14 @@
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+    }
+  </script>
+
 </body>
 </html>
