@@ -369,4 +369,5 @@ document.getElementById("allEventsBtn").addEventListener("click", showAllEvents)
     requestAnimationFrame(draw);
   };
   draw();
-})();
+}
+)();
