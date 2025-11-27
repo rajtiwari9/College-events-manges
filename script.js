@@ -371,3 +371,40 @@ document.getElementById("allEventsBtn").addEventListener("click", showAllEvents)
   draw();
 }
 )();
+// Save Registration
+document.getElementById("regForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const regData = {
+    name: document.getElementById("regName").value,
+    dept: document.getElementById("regDept").value,
+    roll: document.getElementById("regRoll").value,
+    phone: document.getElementById("regPhone").value,
+    email: document.getElementById("regEmail").value,
+    event: selectedEvent.title, // <-- yaha correct event name jaayega
+    payment: document.getElementById("paymentMethod").value,
+    time: new Date().toLocaleString()
+  };
+
+  // Store in localStorage
+  let allRegs = JSON.parse(localStorage.getItem("registrations")) || [];
+  allRegs.push(regData);
+  localStorage.setItem("registrations", JSON.stringify(allRegs));
+
+  alert("Registration Successful!");
+  document.getElementById("registerModal").style.display = "none";
+});
+// Event click → Save event name
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("event-card") || e.target.closest(".event-card")) {
+
+    const card = e.target.closest(".event-card");
+    const eventName = card.querySelector("h3").innerText;
+
+    localStorage.setItem("selectedEvent", eventName);
+
+    // Modal open karna ho to
+    document.getElementById("registerModal").style.display = "block";
+  }
+});
+
