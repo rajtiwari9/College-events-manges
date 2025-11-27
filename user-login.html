@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Login | CampusConnect</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      background: #f4f9fb;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Center box */
+    .login-wrapper {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* White card same as registration modal */
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: #001f3f;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #f8f8f8;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .login-box input:focus {
+      border-color: #00b5b5;
+      background: #fff;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));;
+      border: none;
+      color: #042638;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+
+    .login-btn:hover {
+      background:linear-gradient(90deg, var(--teal), var(--accent));;;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h2>🔐 User Login</h2>
+
+      <input type="text" id="rollInput" placeholder="Roll Number" required>
+      <input type="email" id="emailInput" placeholder="Email" required>
+
+      <button class="login-btn" onclick="userLogin()">Login</button>
+    </div>
+  </div>
+
+<script>
+function userLogin() {
+  const roll = document.getElementById("rollInput").value.trim();
+  const email = document.getElementById("emailInput").value.trim().toLowerCase();
+
+  if (!roll || !email) {
+    alert("Please enter Roll Number and Email.");
+    return;
+  }
+
+  // Save login
+  localStorage.setItem("loggedUserRoll", roll);
+  localStorage.setItem("loggedUserEmail", email);
+
+  // Redirect to dashboard
+  window.location.href = "user-dashboard.html";
+}
+</script>
+
+</body>
+</html>
