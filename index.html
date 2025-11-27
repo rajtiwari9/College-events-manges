@@ -13,7 +13,6 @@
   <nav class="navbar">
     <h2 class="logo">CampusConnect</h2>
 
-    <!-- NAV LINKS -->
     <div class="nav-links">
       <a href="#" id="homeBtn">Home</a>
       <a href="#" id="eventsBtn">Events</a>
@@ -21,17 +20,14 @@
       <a href="#" id="contactBtn">Contact</a>
     </div>
 
-    <!-- ADMIN BUTTON -->
     <button id="adminBtn" class="admin-btn">Admin</button>
 
-    <!-- HAMBURGER BUTTON -->
     <div class="hamburger" onclick="toggleMenu()">
       <div></div>
       <div></div>
       <div></div>
     </div>
   </nav>
-
 
   <!-- HEADER -->
   <header id="headerText">
@@ -41,33 +37,28 @@
       <p>Discover and register for amazing college events — easy, fast & secure.</p>
       <div class="hero-cta">
         <button id="exploreClubsBtn" class="primary">Explore Clubs</button>
-        <button id="allEventsBtn" class="secondary">All Events</button>
+        <button id="userLoginBtn" class="secondary">User Login</button>
       </div>
     </div>
   </header>
 
   <!-- MAIN CONTENT -->
   <main id="mainContent">
-
-    <!-- CLUBS SECTION -->
     <section id="clubsSection" style="display:none; padding: 20px;">
       <h2>🎯 Explore Clubs</h2>
       <p>Manage or view all clubs here.</p>
       <div id="clubList"></div>
     </section>
 
-    <!-- EVENTS SECTION -->
     <section id="eventsSection" style="display:none; padding: 20px;">
       <h2>📅 All Events</h2>
       <p>Manage or view all events here.</p>
       <div id="eventList"></div>
     </section>
 
-    <!-- BACK BUTTON -->
     <div class="back-btn-container">
       <button class="back-btn" onclick="window.history.back()">← Back</button>
     </div>
-
   </main>
 
   <!-- FOOTER -->
@@ -75,11 +66,11 @@
     <p>© 2025 CampusConnect | All Rights Reserved</p>
   </footer>
 
-
   <!-- REGISTRATION MODAL -->
   <div id="registerModal" class="modal">
     <div class="modal-content">
       <h3>🎟 Event Registration</h3>
+
       <form id="regForm">
         <input type="text" id="regName" placeholder="Full Name" required />
         <input type="text" id="regDept" placeholder="Department" required />
@@ -102,10 +93,11 @@
           <button type="button" id="closeModal" class="secondary">Cancel</button>
         </div>
       </form>
+
     </div>
   </div>
 
-  <!-- ADMIN LOGIN MODAL -->
+  <!-- ADMIN LOGIN -->
   <div id="adminLogin" class="modal">
     <div class="modal-content">
       <h3>🔑 Admin Login</h3>
@@ -117,13 +109,61 @@
     </div>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- YOUR SCRIPT FILE -->
   <script src="script.js"></script>
 
+  <!-- USER LOGIN REDIRECT -->
   <script>
+    document.getElementById("userLoginBtn").addEventListener("click", function() {
+      window.location.href = "user-login.html";
+    });
+
     function toggleMenu() {
       document.querySelector(".nav-links").classList.toggle("show");
     }
+  </script>
+
+  <!-- 🔥 EVENT DATA SAVE FIXED SCRIPT -->
+  <script>
+    // EVENT NAME will be stored when event card is clicked (handled in script.js)
+    // Registration Save Code:
+    document.getElementById("regForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("regName").value;
+      const dept = document.getElementById("regDept").value;
+      const roll = document.getElementById("regRoll").value;
+      const phone = document.getElementById("regPhone").value;
+      const email = document.getElementById("regEmail").value.toLowerCase();
+      const payment = document.getElementById("paymentMethod").value;
+
+      // ⭐ EVENT NAME FIX
+      const event = localStorage.getItem("selectedEvent");
+      if (!event) {
+        alert("Error: Event name not found!");
+        return;
+      }
+
+      const time = new Date().toLocaleString();
+
+      let registrations = JSON.parse(localStorage.getItem("registrations")) || [];
+
+      registrations.push({
+        name,
+        dept,
+        roll,
+        phone,
+        email,
+        payment,
+        event,
+        time
+      });
+
+      localStorage.setItem("registrations", JSON.stringify(registrations));
+
+      alert("Registration Successful!");
+      document.getElementById("registerModal").style.display = "none";
+    });
   </script>
 
 </body>
