@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard | CampusConnect</title>
+
+  <!-- MAIN STYLE -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- DASHBOARD CUSTOM STYLE -->
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <!-- ✅ NAVBAR (100% SAME AS INDEX PAGE) -->
+  <nav class="navbar">
+    <h2 class="logo">CampusConnect</h2>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#" id="eventsBtn">Events</a>
+    <a href="#" id="aboutBtn">About</a>
+    <a href="#" id="contactBtn">Contact</a>
+</div>
+   
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- PAGE TITLE -->
+  <section class="dashboard-section">
+    <h2>Your Participation</h2>
+    <div id="userEvents" class="events-container"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 CampusConnect | All Rights Reserved</p>
+  </footer>
+
+  <!-- HAMBURGER MENU SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("show");
+    }
+  </script>
+
+  <!-- USER REGISTRATION DISPLAY SCRIPT -->
+  <script>
+    // Step 1: check login
+    const roll = localStorage.getItem("loggedUserRoll");
+    const email = localStorage.getItem("loggedUserEmail");
+
+    if (!roll || !email) {
+      window.location.href = "user-login.html";
+    }
+
+    // Step 2: get all registrations
+    const allRegs = JSON.parse(localStorage.getItem("registrations")) || [];
+
+    // Step 3: filter user specific data
+    const myRegs = allRegs.filter(r => r.roll === roll && r.email === email);
+
+    const box = document.getElementById("userEvents");
+
+    // Step 4: display
+    if (myRegs.length === 0) {
+      box.innerHTML = `
+        <p class="no-data">No registrations found.</p>
+      `;
+    } else {
+      myRegs.forEach(reg => {
+        box.innerHTML += `
+          <div class="event-card">
+            <h3>${reg.event}</h3>
+            <p><b>Name:</b> ${reg.name}</p>
+            <p><b>Roll:</b> ${reg.roll}</p>
+            <p><b>Email:</b> ${reg.email}</p>
+            <p><b>Payment:</b> ${reg.payment}</p>
+            <p><b>Date & Time:</b> ${reg.time}</p>
+          </div>
+        `;
+      });
+    }
+  </script>
+
+</body>
+</html>
